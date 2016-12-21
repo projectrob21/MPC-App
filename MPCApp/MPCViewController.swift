@@ -16,6 +16,7 @@ class MPCViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var recordingSession: AVAudioSession!
+    var reverbUnit: AVAudioUnitReverb!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,16 @@ class MPCViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
             $0.edges.equalToSuperview()
         }
         
+        reverbUnit = AVAudioUnitReverb()
+        reverbUnit.wetDryMix = 50
+        reverbUnit.loadFactoryPreset(.largeHall)
+        
         assignGestureRecognizers()
         assignButtonTargets()
         
         mpcView.recordButton.addTarget(self, action: #selector(recordAudio(_:)), for: .touchUpInside)
     }
+
     
     func assignGestureRecognizers() {
         
@@ -109,7 +115,8 @@ class MPCViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     
     func padTapped(_ padButton: UIButton) {
         preparePlayer(for: padButton.tag)
-        audioPlayer.play()
+        guard let unwrappedAudioPlayer = audioPlayer else { print("could not unwrap audioPlayer, no file"); return }
+        unwrappedAudioPlayer.play()
     }
     
     func preparePlayer(for padButtonTag: Int) {

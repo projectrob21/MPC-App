@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import UIKit
+import AVFoundation
 import SnapKit
+import UIKit
 
 class MPCView: UIView {
     
@@ -22,6 +23,10 @@ class MPCView: UIView {
 
     var padButtonArray = [PadButton]()
     var padViewArray = [PadView]()
+    
+    var reverbSlider: UISlider!
+    var delaySlider: UISlider!
+    var pitchSlider: UISlider!
     
     var recordButton: UIButton!
     
@@ -68,6 +73,9 @@ class MPCView: UIView {
             button.backgroundColor = UIColor.cyan
         }
 
+        reverbSlider = UISlider()
+        delaySlider = UISlider()
+        pitchSlider = UISlider()
         
         recordButton = UIButton()
         recordButton.titleLabel?.text = "Record"
@@ -115,6 +123,13 @@ class MPCView: UIView {
         padView3.addSubview(padButton3)
         padButton3.snp.makeConstraints {
             $0.edges.equalTo(UIEdgeInsetsMake(5, 5, 5, 5))
+        }
+        
+        addSubview(reverbSlider)
+        reverbSlider.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.75)
         }
         
         addSubview(recordButton)
