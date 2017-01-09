@@ -32,5 +32,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Will activate microphone to record sounds of your choosing</string>
 </dict>
 </plist>

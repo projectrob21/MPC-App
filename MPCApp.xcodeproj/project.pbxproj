@@ -15,6 +15,7 @@
 		E8D63AEC1E072ACB002614CA /* MPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D63AEB1E072ACB002614CA /* MPCView.swift */; };
 		E8D63AEE1E072BA0002614CA /* PadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D63AED1E072BA0002614CA /* PadButton.swift */; };
 		E8D63AF01E072F37002614CA /* MPCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D63AEF1E072F37002614CA /* MPCViewController.swift */; };
+		E8DBCFDC1E243A0100152AD8 /* MPCApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8DBCFDA1E243A0100152AD8 /* MPCApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		E8D63AEB1E072ACB002614CA /* MPCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCView.swift; sourceTree = "<group>"; };
 		E8D63AED1E072BA0002614CA /* PadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PadButton.swift; sourceTree = "<group>"; };
 		E8D63AEF1E072F37002614CA /* MPCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCViewController.swift; sourceTree = "<group>"; };
+		E8DBCFDB1E243A0100152AD8 /* MPCApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MPCApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		E820FE971E07241B00A278F2 = {
 			isa = PBXGroup;
 			children = (
+				E8DBCFDA1E243A0100152AD8 /* MPCApp.xcdatamodeld */,
 				E820FEA21E07241B00A278F2 /* MPCApp */,
 				E820FEB71E07241B00A278F2 /* MPCAppTests */,
 				E820FEA11E07241B00A278F2 /* Products */,
@@ -176,6 +179,7 @@
 				TargetAttributes = {
 					E820FE9F1E07241B00A278F2 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 9TAE6F86BV;
 						ProvisioningStyle = Automatic;
 					};
 					E820FEB31E07241B00A278F2 = {
@@ -279,6 +283,7 @@
 				E8D63AF01E072F37002614CA /* MPCViewController.swift in Sources */,
 				E820FEA41E07241B00A278F2 /* AppDelegate.swift in Sources */,
 				E833DE4F1E08F1F0006438C4 /* PadView.swift in Sources */,
+				E8DBCFDC1E243A0100152AD8 /* MPCApp.xcdatamodeld in Sources */,
 				E8D63AEC1E072ACB002614CA /* MPCView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +403,7 @@
 			baseConfigurationReference = 904E800BA6C58503CA11AFF2 /* Pods-MPCApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9TAE6F86BV;
 				INFOPLIST_FILE = MPCApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rob.MPCApp;
@@ -411,6 +417,7 @@
 			baseConfigurationReference = C0E493A8FADB40A2EB303577 /* Pods-MPCApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9TAE6F86BV;
 				INFOPLIST_FILE = MPCApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rob.MPCApp;
@@ -478,6 +485,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E8DBCFDA1E243A0100152AD8 /* MPCApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E8DBCFDB1E243A0100152AD8 /* MPCApp.xcdatamodel */,
+			);
+			currentVersion = E8DBCFDB1E243A0100152AD8 /* MPCApp.xcdatamodel */;
+			name = MPCApp.xcdatamodeld;
+			path = MPCApp/MPCApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E820FE981E07241B00A278F2 /* Project object */;
 }

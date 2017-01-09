@@ -38,14 +38,17 @@ class MPCViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
             $0.edges.equalToSuperview()
         }
         
+        assignGestureRecognizers()
+        assignButtonTargets()
+        mpcView.recordButton.addTarget(self, action: #selector(recordAudio(_:)), for: .touchUpInside)
+        /*
         reverbUnit = AVAudioUnitReverb()
         reverbUnit.wetDryMix = 50
         reverbUnit.loadFactoryPreset(.largeHall)
+        */
         
-        assignGestureRecognizers()
-        assignButtonTargets()
         
-        mpcView.recordButton.addTarget(self, action: #selector(recordAudio(_:)), for: .touchUpInside)
+        
     }
 
     
@@ -79,14 +82,14 @@ class MPCViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         
         guard let padViewTag = sender.view?.tag else { print("error uwnrapping view tag"); return }
         let audioFile = "padButton\(padViewTag).audioFile.m4a"
+        
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
         let audioFilename = documentsDirectory.appendingPathComponent(audioFile)
         
         let settings = [AVFormatIDKey : Int(kAudioFormatAppleLossless),
                         AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
-                        AVEncoderBitRateKey : 320000,
-                        AVNumberOfChannelsKey: 2,
+                        AVNumberOfChannelsKey: 1,
                         AVSampleRateKey: 44100.0 ] as [String : Any]
         
         do {
@@ -107,6 +110,7 @@ class MPCViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         if sender.titleLabel?.text == "Record" {
             audioRecorder.record()
             sender.setTitle("Stop", for: .normal)
+            print("recording file at \(audioRecorder.url)")
         } else {
             audioRecorder.stop()
             sender.setTitle("Record", for: .normal)
