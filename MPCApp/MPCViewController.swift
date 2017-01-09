@@ -41,13 +41,29 @@ class MPCViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         assignGestureRecognizers()
         assignButtonTargets()
         mpcView.recordButton.addTarget(self, action: #selector(recordAudio(_:)), for: .touchUpInside)
+        
         /*
         reverbUnit = AVAudioUnitReverb()
         reverbUnit.wetDryMix = 50
         reverbUnit.loadFactoryPreset(.largeHall)
         */
         
-        
+        recordingSession = AVAudioSession.sharedInstance()
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if allowed {
+                        print("microphone permissions granted")
+                    } else {
+                        print("microphone permissions denied")
+                    }
+                }
+            }
+        } catch {
+            print("failed to ser upt recordingSession")
+        }
         
     }
 
